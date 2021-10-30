@@ -1,0 +1,446 @@
+
+	 REACT BASICS & WORKING W/ COMPONENTS
+
+		1. MODULE INTRODUCTION
+			MODULE CONTENT:	REACT CORE SYNTAX & JSX
+					WORKING W/ COMPONENTS
+					WORKING W/ DATA
+
+		2. WHAT ARE COMPONENTS? AND WHY IS REACT ALL ABOUT THEM?
+			- REACT MAKES BUILDING COMPLEX, INTERACTIVE, AND REACTIVE USER INTERFACE SIMPLER
+			- REACT IS ALL ABOUT "COMPONENTS". (ALL USER INTERFACES ARE MADE UP OF COMPONENTS)
+				- COMPONENTS ARE THE REUSABLE BUILDING BLOCKS IN THE USER INTERFACE
+				- COMPONENTS ARE MADE OF HTML, CSS FOR STYLING, AND JAVASCRIPT FOR CODING
+			- WHY COMPONENTS?
+				- BECAUSE OF ITS REUSABILITY WHERE WE DON'T REPEAT OURSELVES
+				- BECAUSE OF THE SEPARATION OF CONCERNS WHERE WE DON'T DO TOO MANY THINGS IN ONE AND THE SAME PLACE (FUNCTION)
+			- REACT SPLIT BIG CHUNKS OF CODE INTO MULTIPLE SMALLER FUNCTIONS
+
+		3. REACT CODE IS WRITTEN IN A "DECLARATIVE WAY"
+			- HOW IS A COMPONENT BUILT?
+				- REACT IS BUILT BY COMBINING HTML, (CSS), AND JAVASCRIPT.
+				- IT USES DECLARATIVE APPROACH
+				- IT DEFINES THE DESIRED TARGET STATE(S) AND LET REACT FIGURE OUT THE ACTUAL JAVASCRIPT DOM INSTRUCTIONS
+
+	CREATING REACT APPLICATION
+	  1. Run [ sudo npm i -g create-react-app ]
+	  2. GO TO THE FOLDER WHERE YOU WANT TO CREATE THE FILES THEN RIGHT-CLICK AND RUN TERMINAL
+	  3. RUN [ npx create-react-app project-name ] ON TERMINAL
+	  4. FOLLOW THE INSTRUCTIONS FROM THE TERMINAL AFTER.
+
+	  5. OPEN THE FOLDER IN CODE EDITOR AND OPEN TERMINAL AND RUN [ npm install ]
+	  6. ONCE DONE, RUN [ npm start ]
+
+	INTRODUCTION TO JSX (JAVASCRIPT XML)
+	  - a syntax extension of JavaScript.
+	  - It allows us to directly write HTML in React (within JavaScript code).
+
+	HOW REACT WORKS
+	  - IT DESIGNS SIMPLE VIEWS FOR EACH STATE IN YOUR APPLICATION, AND REACT WILL EFFICIENTLY UPDATE AND RENDER THE RIGHT COMPONENT WHEN YOUR DATA CHANGES.
+	  - IT SHOULD HAVE ONLY ONE ROOT ELEMENT. it can be written as an opening <div> and a closing </div>
+
+						*********************************************************
+						|	function ExpenseItem() {			|
+						|	    return 					|
+						|		<div><h2>Expense Item!</h2></div>	|
+						|		<div>date</div> ---error		|
+						|	}						|
+						|							|
+						|	export default ExpenseItem;			|
+						*********************************************************
+
+	ADDING BASIC CSS STYLING:
+		NOTE: 	1. create a new file in the same folder as the javascript and name with the name of the javascript file.
+						2. import the css file to the javascript file by importing [ import './filename.css'; ]
+						3. you can add classes to the html by writing [ className="" ]
+
+
+						*************************************************************************
+						|	import './filename.css';					|
+						|									|
+						|	function ExpenseItem() {					|
+						|   		return (						|
+						|			<div className="">				|
+						|				<div> Date </div>			|
+						|				<div>					|
+						|					<h2> Title </h2>		|
+						|					<div> Amount </div>		|
+						|				</div>					|
+						|			</div>						|
+						|									|
+						|	}								|
+						|									|
+						|	export default ExpenseItem;					|
+						*************************************************************************
+
+	NOTES:
+		1. IN IMPORTING JAVASCRIPT FILES, DO NOT INCLUDE THE .JS IN THE FILE NAME
+			ReactDOM.render(<App />, document.getElementById('root'));
+			- it is like the innerHTML in javascript where you get the code from app.js and store it in document.getElementById('root') with id='root'
+		2. IN CREATING HTML CONSTRUCTOR, YOU DOES NOT NEED TO ENCLOSE IT WITH BACKTICK (``) AND JUST WRITE IT LIKE NORMAL HTML
+
+
+
+	# Outputting Dynamic Data & Working
+	  with Expressions in JSX
+
+	- you can create const variables and assign values to it...
+		function ExpenseItem() {
+		    const expenseDate = new Date(2021, 12, 27);
+		    const expenseTitle = 'Wedding Expenses';
+		    const expenseAmount = 200000.00;
+
+		    return (
+			<div className="expense-item">
+			    <div>December 27, 2022</div>
+			    <div className="expense-item__description">
+				<h2>{expenseTitle}</h2>
+				<div className="expense-item__price">200,000.00</div>
+			    </div>
+			</div>
+		    );
+		}
+
+	# Passing Data via "props"(properties)
+
+		NOTE: components can't just use data stored in other components.
+		- you can use the "props" as parameter
+
+		function ExpenseItem(props) {
+		    return (
+			<div className="expense-item">
+			    <div>{props.date}</div>
+			    <div className="expense-item__description">
+				<h2>{props.title}</h2>
+				<div className="expense-item__price">{props.amount}</div>
+			    </div>
+			</div>
+		    );
+		}
+
+	# Organizing Component Files
+		- make some subfolders in the component folder to organize it even more.
+		- for example:
+			COMPONENTS
+				EXPENSES
+					ExpenseDate.css
+					ExpenseDate.js
+					ExpenseItem.css
+					ExpenseItem.js
+					Expenses.css
+					Expenses.js
+				UI
+					Card.css
+					Card.js
+
+	# An Alternative Function Syntax
+		- change all function syntax into a const and make it an arrow function
+			from:	function name() = {};
+			to:	const name = () => {};
+
+
+	SECTION 4: REACT STATE & WORKING W/ EVENTS
+	# Module Introduction
+
+		MODULE CONTENT:
+			HANDLING EVENTS
+			UPDATING THE UI & WORKING WITH "STATE"
+			A CLOSER LOOK AT COMPONENTS & STATE
+
+	# Listening to Events & Working with
+	  Event Handlers
+
+		- instead of adding document.addEventLister in the file you can directly put prop and a function like putting a onClick funtion on the button.
+		example: <button onClick={() => {console.log('clicked!)}}> Change title </button>
+		or create a function before return...
+
+		const clickHandler = () => {
+			console.log('clicked!')
+		};
+		return (
+			<button onClick={clickHandler}> Change title </button>
+		);
+
+	# How Component Functions Are
+	  Executed
+
+	# Working with "State"
+
+		import something from the react which is called "name" import
+
+	# Adding Form Inputs
+
+			const ExpenseForm = () => {
+				return <form>
+						<div className="new-expense__controls">
+							<div className="new-expense__control">
+								<label>Title</label>
+								<input type="text" />
+							</div>
+							<div className="new-expense__control">
+								<label>Amount</label>
+								<input type="number" min="0.01" step="0.01" />
+							</div>
+							<div className="new-expense__control">
+								<label>Date</label>
+								<input type="date" min="2019-01-01" max="2022-12-31" />
+							</div>
+						</div>
+						<div className="new-expense__actions">
+							<button type="submit">Add expense</button>
+						</div>
+					</form>
+			};
+
+			import ExpenseForm from './ExpenseForm';
+			import './NewExpense.css';
+
+			const NewExpense = () => {
+			    return (
+			      <div className="new-expense">
+			      <ExpenseForm />
+			    </div>
+			  );
+			};
+
+			export default NewExpense;
+
+			// APP.JS
+			return (
+		    <div>
+		    <NewExpense />
+		      <Expenses item={expenses}/>
+		    </div>
+		  );
+
+
+			# Lifting The State Up
+
+					<App />
+					- This component has access to other involved components
+						<Expense />
+						- Data/State is needed here
+						<NewExpense />
+						- Data/State is generated here
+
+						note:
+						- you can communicate through child-to-parent and parent-to-child.
+						- we can store our STATE in the closest involved component by "lifting the state up". --from child to parent
+						- we can pass data via props. --from parent to child
+
+			SECTION 5: RENDERING LISTS & CONDITIONAL CONTENT
+			# Rendering Lists of Data
+
+						- Using the array.map() method to create a new array based on the number array and transform array to the original form array.
+
+						return (
+	                <div>
+	                  <Card className="expenses">
+	                  <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
+
+	           <!-- from these (delete) -->
+	                    // <ExpenseItem
+	                    //     title={props.item[0].title}
+	                    //     amount={props.item[0].amount}
+	                    //     date={props.item[0].date}
+	                    // />
+	                    // <ExpenseItem
+	                    //     title={props.item[1].title}
+	                    //     amount={props.item[1].amount}
+	                    //     date={props.item[1].date}
+	                    // />
+	                    // <ExpenseItem
+	                    //     title={props.item[2].title}
+	                    //     amount={props.item[2].amount}
+	                    //     date={props.item[2].date}
+	                    // />
+	                    // <ExpenseItem
+	                    //     title={props.item[3].title}
+	                    //     amount={props.item[3].amount}
+	                    //     date={props.item[3].date}
+	                    // />
+	                    </Card>
+	                    </div>
+	              )
+
+								<!-- to these -->
+		                  // {props.item.map(expense => (
+		                  //   <ExpenseItem
+		                  //     title={expense.title}
+		                  //     amount={expense.amount}
+		                  //     date={expense.date}
+		                  //   />
+		                  // ))}
+
+				# Using Stateful Lists
+
+							to update expense items when there are new expense input:
+								-extract the initial values from inside the function and put it outside the function then use useState() with initial value inside the function where you extracted the initial value.
+
+								const DUMMY_EXPENSES = [
+								  {
+								    id: 'e1',
+								    title: 'Toilet Paper',
+								    amount: 94.12,
+								    date: new Date(2020, 7, 14),
+								  },
+								  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+								  {
+								    id: 'e3',
+								    title: 'Car Insurance',
+								    amount: 294.67,
+								    date: new Date(2021, 2, 28),
+								  },
+								  {
+								    id: 'e4',
+								    title: 'New Desk (Wooden)',
+								    amount: 450,
+								    date: new Date(2021, 5, 12),
+								  },
+								];
+
+								const App = () => {
+								  useState(DUMMY_EXPENSES)
+
+								  const addExpenseHandler = expense => {
+								    console.log('In App.js');
+								    console.log(expense);
+								  }
+
+								  return (
+								    <div>
+								    <NewExpense onAddExpense={addExpenseHandler}/>
+								      <Expenses item={expenses}/>
+								    </div>
+								  );
+								}
+
+				# Understanding "Keys"
+
+						adding Key={expense.id}; //Key is a default in react
+
+				# Outputting Conditional Content
+
+				let expensesContent = <p>No expenses found.</p>;
+
+				if(filteredExpenses.length > 0){
+					expensesContent = filteredExpenses.map((expense) => (
+						<ExpenseItem
+							key={expense.id}
+							title={expense.title}
+							amount={expense.amount}
+							date={expense.date}
+						/>
+					));
+				}
+				return (
+							<div>
+								<Card className='expenses'>
+								<ExpensesFilter
+									selected={filteredYear}
+									onChangeFilter={filterChangeHandler}
+								/>
+									{expensesContent}
+								</Card>
+							</div>
+						)
+
+				# Adding Conditional Return Statements
+
+
+				SECTION 7: DEBUGGING REACT APPS
+				# Understanding React Error Messages
+
+							/*			return (
+												<section id="goal-form">
+													<CourseInput onAddGoal={addGoalHandler} />
+												</section>
+												<section id="goals">
+													{content}
+												</section>
+												);
+
+
+									error: failed to compile
+													parsing error: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>?
+
+													solution: enclosed the codes in one root tag.
+													return (
+														//<div>
+															<section id="goal-form">
+																<CourseInput onAddGoal={addGoalHandler} />
+															</section>
+															<section id="goals">
+																{content}
+															</section>
+														//</div>
+													);
+							*/
+
+							/*
+													const addGoalHandler = enteredText => {
+														setCourseGoals(prevGoals => {
+															const updatedGoals = [...prevGoals];
+															updatedGoals.unshift({ text: enteredText, id: 'goal1' });
+															return updatedGoals;
+														});
+													};
+
+													return (
+														<div>
+															<section id="goal-form">
+																<CourseInput onAddGoal={addGoalsHandler} />
+															</section>
+															<section id="goals">
+																{content}
+															</section>
+														</div>
+													);
+
+									error: failed to compile
+													src/App.js
+													Line 41:33:  'addGoalsHandler' is not defined  no-undef
+
+									solution: check if the 'addGoalsHandler' is equal to the declared function
+													check if the spelling is correct
+								//	const addGoalHandler = enteredText => {
+										setCourseGoals(prevGoals => {
+											const updatedGoals = [...prevGoals];
+											updatedGoals.unshift({ text: enteredText, id: 'goal1' });
+											return updatedGoals;
+										});
+									};
+
+									return (
+										<div>
+											<section id="goal-form">
+											//	<CourseInput onAddGoal={addGoalHandler} />
+											</section>
+											<section id="goals">
+												{content}
+											</section>
+										</div>
+									);
+							*/
+
+				# Analyzing Code Flow & Warning
+
+							/*
+								when there are no error shown in the terminal
+								but the app is not doing what you want it to do...
+								you will have to trace the code flow in order to know
+								what went wrong in your application and correct it.
+							*/
+
+				# Working with Breakpoints
+
+							/*
+								if you cant find the error you can go to the SOURCES
+								or NETWORK (mozilla firefox) in the BROWSER DEVELOPER
+								(right-click the browser and open inspect then go to )...
+
+							*/
+
+				# Using the React DevTools
+
+							

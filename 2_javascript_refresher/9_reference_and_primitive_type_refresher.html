@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>REFERENCE & PRIMITIVE TYPE REFRESHER</title>
+  </head>
+  <body>
+
+<script>
+  <!-- number type -->
+  const number = 1;
+  const num2 = number;
+  console.log(num2); // 1 (reassigning the value of the variable to another variable is called PREMITIVE TYPE)
+
+  <!-- object type -->
+  const person = {
+    name: 'Kezeah'
+  }
+  // const secondPerson = person;
+  // but if we change the value of the person it will change the value inside the pointer also
+
+  const secondPerson = {
+    ...person
+  }; // but if we spread the object it will copy the value of the original object even if we change the value of the name because we are copying the object not just the pointer
+  //  we created a real copy of the object
+
+  person.name = 'Reyco';
+  console.log(secondPerson);  // Object { name: "Kezeah" } (the object will be stored to the person and the secondPerson will have a pointer to the person variable so it can get the stored value of the person)
+                              // Object { name: "Reyco" }
+
+  <!-- objects and arrays are reference type -->
+</script>
+  </body>
+</html>

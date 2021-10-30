@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>UNDERSTANDING "LET" AND "CONST"</title>
+  </head>
+  <body>
+
+    <script>
+      <!-- LET AND CONST -->
+      // let : variable values.
+      // const : constant values, where you assign once and never change.
+
+      <!-- var -->
+      var fName = 'kezeah';
+      console.log(fName); // kezeah
+
+      fName = 'reyco';
+      console.log(fName); // reyco (you can assign values to myName repeatedly)
+
+      <!-- let -->
+      let mName = 'venezuela';
+      console.log(mName); // kezeah
+
+      mName = 'cobselin';
+      console.log(mName); // reyco (similar to var)
+
+      <!-- const -->
+      const lName = 'dongon';
+      console.log(lName); // kezeah
+
+      lName = 'seguma';
+      console.log(lName); // Uncaught TypeError: invalid assignment to const 'lName' (const variable are irreplaceable)
+
+    </script>
+  </body>
+</html>
