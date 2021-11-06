@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>REFRESHING ARRAY FUNCTIONS</title>
+  </head>
+  <body>
+
+<script>
+  const number = [ 1, 2, 3, 4, 5];
+  const doubleNumArray = number.map((num) => {
+    return num*2;
+  }) // when using map, it will execute in each element in the array
+
+  console.log(number);          // Array(5) [ 1, 2, 3, 4, 5 ]
+  console.log(doubleNumArray);  // Array(5) [ 2, 4, 6, 8, 10 ]
+</script>
+  </body>
+</html>

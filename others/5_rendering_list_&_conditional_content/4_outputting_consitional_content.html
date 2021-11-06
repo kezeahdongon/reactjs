@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>OUTPUTTING CONDITIONAL CONTENT</title>
+  </head>
+  <body>
+    <script>
+      /*
+        conditional content is about rendering different output under different conditions.
+
+        syntax:
+        {condition ? (<p> what you want to output after the condition</p>) : (what do you want to do if false)}
+
+        note: (:) is for else statement.
+
+        example: let expensesContent = <p>No expenses found.</p>;
+
+        if(filteredExpenses.length > 0){
+          expensesContent = filteredExpenses.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ));
+        }
+        return (
+              <div>
+                <Card className='expenses'>
+                <ExpensesFilter
+                  selected={filteredYear}
+                  onChangeFilter={filterChangeHandler}
+                />
+                  {expensesContent}
+                </Card>
+              </div>
+            )
+      */
+    </script>
+  </body>
+</html>

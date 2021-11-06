@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>THE SPREAD AND REST OPERATORS</title>
+  </head>
+  <body>
+
+<script>
+  // the operator is just 3 dots (...)
+
+  // spread: use to split up array elements or object properties
+  // const newArray = {...oldArray, 1, 2}
+  // const newObject = {...oldObject, newProp: 5}
+
+  //  rest: use to merge a list of function argument into an array
+  // function sortArgs(...args){
+  //   return args.sort()
+  // }
+
+/*
+  <!-- example for spread operator -->
+  const number = [1,2,3,4,5];
+  const newNumber = [...number,6,7,8,9,10]; // ...number calls on the variable array number values and store it on the new array
+  console.log(newNumber); // Array(10) [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+
+  const person = {
+    name: 'kezeah',
+    age: 23,
+    gender: 'female'
+  }
+
+  const newPerson = {
+    ...person,
+    // ...number,
+    address: 'lake lahit, lake sebu, south cotabato'
+  }
+  console.log(newPerson); // Object { name: "kezeah", age: 23, gender: "female", address: "lake lahit, lake sebu, south cotabato" }
+*/
+
+  <!-- example for rest operator -->
+  const filter = (...args) => {
+    return args.filter(el => el === 1);
+  }
+  console.log(filter(1,2,3,)); // Array [ 1 ]    (it only return the array 1 because we filter it in array 1)
+</script>
+  </body>
+</html>

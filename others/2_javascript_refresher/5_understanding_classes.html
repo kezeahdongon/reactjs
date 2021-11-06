@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>UNDERSTANDING CLASSES</title>
+  </head>
+  <body>
+ <script>
+   /*
+   class person {
+     name = 'kezeah' //properties
+     call = () => {...} // methods
+   }
+   */
+
+   /*
+   <!-- usage of classes -->
+    const myPerson = new Person()
+    myPerson.call()
+    console.log(myPerson.name);
+    */
+
+    /*
+    <!-- inheritance -->
+    class person extends Master
+    */
+
+    /*
+    class Person {
+      constructor() {
+        this.name = 'kezeah';
+      }
+
+      myName(){
+        console.log(this.name); // kezeah
+      }
+    }
+    const person = new Person();
+    person.myName();
+    */
+
+    /*
+    <!-- using inherited class -->
+    class Human {
+      constructor() {
+        this.gender = 'female';
+      }
+      myGender(){
+        console.log(this.gender);
+      }
+    }
+
+    class Person extends Human { //the keyword for inherited is "extends"
+      constructor() {
+        super(); // then we must put super() to get the mother class
+        this.name = 'kezeah';
+      }
+
+      myName(){
+        console.log(this.name); // kezeah
+      }
+    }
+    const person = new Person();
+    person.myName();
+    person.myGender();
+    */
+ </script>
+  </body>
+</html>
