@@ -7,6 +7,41 @@
     <title>What are "Side Effects" & Introducing useEffect</title>
 </head>
 <body>
-    
+    <!--
+        Module Content:
+            - Working w/ (Side) Effects
+            - Managing more Complex State w/ Reducers
+            - Managing App-Wide or Component-Wide State w/ Context
+    -->
+
+    <!--
+        What is an "Effect" (or a "Side Effect")?
+            Main Job: Render UI & React to User Input
+                - Evaluate & Render JSX
+                - Manage State & Props
+                - React to (User) Events & Input
+                - Re-evaluate Component upon State & Prop Changes
+                NOTE: This is all "baked into" React via the "tools" and features.
+                
+            Side Effects: Anything Else
+                - Store Data in Browser Storage
+                - Send Http Request to Backend Servers
+                - Set & Manage Timers
+                NOTE: These tasks must happen outside of the normal component evaluation and render cycle 
+                    --especially that they might block/delay rendering.
+    -->
+
+    <!--
+        Handling Side Effects w/ the useEffect() Hook
+            useEffect(() => { ... }, [ dependencies ]);
+
+                () => {...},
+                    - A function that should be executed AFTER every component evaluation IF the specified dependencies change.
+                    NOTE: Your side effect code goes to this function.
+
+                [dependencies]
+                    - Dependencies of this effect --the function only runs if the dependencies change.
+                    NOTE: Specify your dependencies of your function here.
+    -->
 </body>
 </html>
