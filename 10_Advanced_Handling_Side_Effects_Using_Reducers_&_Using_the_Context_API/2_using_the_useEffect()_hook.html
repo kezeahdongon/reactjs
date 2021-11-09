@@ -14,8 +14,38 @@
             - Managing App-Wide or Component-Wide State w/ Context
     -->
 
-    <!--
-        
+    <!-- 
+        - EVERYTIME THE BROWSER RESTARTS THIS IS THE FUNCTION THAT RUNS
+
+        function App() {
+            const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn')
+
+            if (storedUserLoggedInInformation === '1'){
+                setLoggedIn(true);
+            }
+
+            const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+            const loginHandler = (email, password) => {
+                // We should of course check email and password
+                // But it's just a dummy/ demo anyways
+                setIsLoggedIn(true);
+            };
+
+            const logoutHandler = () => {
+                setIsLoggedIn(false);
+            };
+
+            return (
+                <React.Fragment>
+                <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+                <main>
+                    {!isLoggedIn && <Login onLogin={loginHandler} />}
+                    {isLoggedIn && <Home onLogout={logoutHandler} />}
+                </main>
+                </React.Fragment>
+            );
+        }
     -->
 </body>
 </html>
