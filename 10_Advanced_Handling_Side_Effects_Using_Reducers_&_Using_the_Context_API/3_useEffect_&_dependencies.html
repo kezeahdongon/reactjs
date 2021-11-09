@@ -13,5 +13,21 @@
             - Managing more Complex State w/ Reducers
             - Managing App-Wide or Component-Wide State w/ Context
     -->
+
+    <!--
+        - By using useEffect() Hook, you tell React that your component needs to do something after render.
+        React will remember the function you passed (we'll refer to it as our “effect”), 
+        and call it later after performing the DOM updates.
+
+        - Dependencies are array items provided as the optional second argument of the useEffect call. 
+        Array values must be from the component scope (i.e., props, state, context, or values derived from the aforementioned). 
+        After execution of every effect, scheduling of new effects occurs based on every effect's dependencies.
+
+        - useEffect() is used to handle the side effects.
+        - Often side effects are: 
+            - http requests
+            - listen to every key stroke and saved that entered data and trigger another function in response. 
+            (side effect of the user entering data)
+    -->
 </body>
 </html>
