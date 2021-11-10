@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing useReducer & Reducers in General</title>
+</head>
+<body>
+    <!--
+        Introducing useReducer() for State Management
+            - useReducer is a React hook function that accepts a reducer function, and an initial state.
+            This hook function returns an array with 2 values. The first one is the state value, 
+            and the second value is the dispatch function which is further used to trigger an action 
+            with the help of array destructuring.
+
+            What is useReducer used for?
+                - useReducer is usually preferable to useState when you have complex state logic 
+                that involves multiple sub-values or when the next state depends on the previous one. 
+                useReducer also lets you optimize performance for components that trigger deep updates 
+                because you can pass dispatch down instead of callbacks.    
+
+            >> sometimes, you have more complex state -for example if it got multiple state, 
+                multiple ways of changing it or dependencies to other states.
+
+                >> useState() then often becomes hard or error-prone to use -it's easy to write bad, 
+                    inefficient or buggy code in such scenarios.
+
+                    >> useReducer() can be a replacement for useState() if you need "more powerful state management".
+    -->
+
+    <!--
+        Understanding useReducer()
+            const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
+
+            state
+                the state snapshot used in the component re-render/re-evaluation cycle.
+            
+            dispatchFn
+                a function that can be used to dispatch a new action (i.e. trigger an update of the state)
+
+            reducerFn
+                (prevState, action) => newState
+                a function that is triggered automatically once an action is dispatched (via dispatchFn())
+                - it receives the latest state snapshot and should return the new updated state.
+            
+            initialState
+                the initial state
+
+            initFn
+                a function to set the initial state programmatically.
+    -->
+</body>
+</html>
