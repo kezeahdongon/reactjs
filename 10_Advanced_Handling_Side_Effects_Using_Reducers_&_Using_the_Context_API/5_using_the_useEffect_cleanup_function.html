@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using the useEffect Cleanup Function</title>
+</head>
+<body>
+    <!--
+        Module Content:
+            - Working w/ (Side) Effects
+            - Managing more Complex State w/ Reducers
+            - Managing App-Wide or Component-Wide State w/ Context
+    -->
+
+    <!--
+        - The useEffect hook is built in a way that if we return a function within the method, 
+        this function will execute when the component gets disassociated. 
+        This is very useful because we can use it to remove unnecessary behavior or prevent memory leaking issues.
+
+        So, if we want to cleanup a subscription, the code would look like this:
+            useEffect(() => {
+                API.subscribe()
+                return function cleanup() {
+                    API.unsubscribe()
+                }
+            });
+    -->
+
+    <!--
+        What is Debouncing in react JS?
+            - A Debouncing Events in ReactJS will allow you to call a function 
+            that ensures that a time-consuming task does not fire so often. 
+            It's a function that takes a function as a parameter and wraps that function 
+            in a closure and returns it so this new function displays the “wait for a bit” behavior.
+    -->
+</body>
+</html>
