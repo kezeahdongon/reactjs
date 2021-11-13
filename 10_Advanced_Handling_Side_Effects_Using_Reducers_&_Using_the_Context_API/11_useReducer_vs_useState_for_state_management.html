@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>useReducer vs useState for State Management</title>
+</head>
+<body>
+    <!--
+        When to use useReducer() and useState()?
+            - useReducer is usually preferable to useState when you have complex state logic 
+            that involves multiple sub-values or when the next state depends on the previous one. 
+            useReducer also lets you optimize performance for components that trigger deep updates 
+            because you can pass dispatch down instead of callbacks.
+
+            - useState should be used only inside functional components. 
+            useState is the way if we need an internal state and don't need to implement more complex logic such as lifecycle methods.
+
+        useState()
+            - The main state management "tool".
+            - Great for independent pieces of state/data.
+            - Great if state updates are easy and limited to a few kinds of updates.
+
+        useReducer()
+            - Great if you need "more power".
+                it can contain complex state update logics where you are always guaranteed to work with the latest state snapshotand 
+                where you can move that potentially more complex logic out of the component function body into the separate function 
+                reducer.
+            - Should be considered if you have related pieces of state/data
+            - Can be helpful if you have more complex state updates.
+
+        You can certainly also handle cases where useReducer will be good to just use useState when combining with useEffect. 
+        Sometimes, using useReducer just might be more eligant or simplier. On the other hand, you should not always use useReducer 
+        because often that would be overkill if you have just a simple state that just switches between two different values.
+    -->
+</body>
+</html>
