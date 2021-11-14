@@ -1,8 +1,11 @@
 // import
+import MealItemForm from './MealItemForm';
+
 import classes from './MealItem.module.css';
 
 const MealItem = props => {
     const price = `$${props.price.toFixed(2)}`; // toFixed(2) means we always render 2 decimal places.
+    
     return (
         <li className={classes.meal}>
             <div>
@@ -11,9 +14,10 @@ const MealItem = props => {
                 <div className={classes.price}>{price}</div>
             </div>
             <div>
-                
+                <MealItemForm id={props.id}/>
             </div>
-        </li>)
+        </li>
+    )
 };
 
 export default MealItem;
