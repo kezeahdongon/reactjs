@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing React Context (Context API)</title>
+</head>
+<body>
+    <!--
+        The React Context API is a way for a React app to effectively produce global variables that can be passed around. 
+        This is the alternative to "prop drilling" or moving props from grandparent to child to parent, and so on.
+        
+        React Context is a method to pass props from parent to child component(s), by storing the props in a store(similar in Redux) and 
+        using these props from the store by child component(s) without actually passing them manually at each level of the component tree.
+
+        The Context API can be used to share data with multiple components, without having to pass data through props manually. 
+        For example, some use cases the Context API is ideal for: theming, user language, authentication, etc.
+
+        There are four steps to using React context:
+            1. Create context using the createContext method.
+            2. Take your created context and wrap the context provider around your component tree.
+            3. Put any value you like on your context provider using the value prop.
+            4. Read that value within any component by using the context consumer.
+    -->
+
+    <!--
+        COMPONENT TREES & COMPONENT DEPENDENCIES
+
+                            <App />
+
+        <Auth />            <Shop />            <Cart />
+
+        <LoginForm />       <Products />        
+        [Login]
+                            <Product />
+                            [Add to cart]
+
+        Note:
+            - we might need the LOGIN to access the <Shop/> or the <Cart/>.
+            - ADD TO CART might be needed to know what is added in the <Cart/>.
+            *but there is no direct connection from <LoginForm/> to (<Shop/> and/or <Cart/>) 
+            and <Product/> does not have direct connection to <Cart/>.
+            *instead: use Props & Functions passed via Props.
+            - so we pass the LOGIN from <LoginForm/> to <Auth/> to <App/> to <Shop/>
+            - and we pass the ADD TO CART from <Product/> to <Products/> to <Shop/> to <App/> to <Cart/>.
+    -->
+</body>
+</html>
