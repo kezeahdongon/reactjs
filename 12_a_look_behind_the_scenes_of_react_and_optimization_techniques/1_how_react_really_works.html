@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How React Really Works</title>
+</head>
+<body>
+    <!--
+        MODULE:
+        - How React Work Behind the Scene?
+            - React is a JavaScript library for building user interfaces.
+            - it is composed of components which are used to build user interfaces.
+            - ReactDOM is the REACT INTERFACE TO THE WEB.
+                NOTE: ReactJS it self does not know the web. It doest not know about the browser.
+            - Real DOM is what the user sees
+            - React determines how the component tree currently looks like and what it should look like.
+            - ReactDOM receives the differences and then manipulates the real DOM
+
+            WHAT REACT CARES ABOUT or THE CORE FEATURES OF REACT?
+            - React only care about components and props which is data from parent componentto make components configurable 
+            and to enable parent-child communication.
+            - React care aboout state which is the internal data inside the component.
+            - React cares about the context which is component-wide data
+
+        NOTE: Re-Evaluating Components !== Re-Rendering the DOM
+            - COMPONENTS are re-evaluted whenever props, state or context changes.
+            React executes component functions again
+            - on the otherhand, changes to the real DOM are only made for differences between evaluations
+
+            VIRTUAL DOM DIFFING:
+                React DOM only insert the new changes to the DOM
+                example:
+                    previous evaluation result
+
+                        <div>
+                            <h1>Hi There!</h1>
+                        </div>
+
+                    current evaluation result
+
+                        <div>
+                            <h1>Hi There!</h1>
+                            <p>This is new!</p> // Changes are required <p> should be inserted in DOM (the rest should stay unchanged)
+                        </div>
+
+        - Understanding the Virtual DOM & DOM Updates
+        - Understanding State & State Updates
+    -->
+</body>
+</html>
