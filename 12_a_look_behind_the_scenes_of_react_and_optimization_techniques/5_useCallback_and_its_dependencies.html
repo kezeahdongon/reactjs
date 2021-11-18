@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>useCallback() and its Dependencies</title>
+</head>
+<body>
+    <!-- 
+        useCallback() allows you to save a function so that you can reuse it.
+            - react store the exact function and store it in a memory so when the function is re-evaluated it will not run.
+
+        "IN JAVASCRIPT, FUNCTIONS ARE CLOSURE."
+
+        - Closure is the combination of a function bundled together (enclosed) with 
+        references to its surrounding state (the lexical environment). 
+        In other words, a closure gives you access to an outer function’s scope from an inner function. 
+        In JavaScript, closures are created every time a function is created, at function creation time.
+
+        - Lexical Scoping:
+            function init() {
+            var name = 'Mozilla'; // name is a local variable created by init
+            function displayName() { // displayName() is the inner function, a closure
+                alert(name); // use variable declared in the parent function
+            }
+            displayName();
+            }
+            init();
+
+            - init() creates a local variable called name and a function called displayName(). 
+            The displayName() function is an inner function that is defined inside init() and 
+            is available only within the body of the init() function. Note that the displayName() 
+            function has no local variables of its own. However, since inner functions have access 
+            to the variables of outer functions, displayName() can access the variable name declared 
+            in the parent function, init().
+
+            - The word lexical refers to the fact that lexical scoping uses the location where a variable 
+            is declared within the source code to determine where that variable is available.
+
+     -->
+</body>
+</html>
