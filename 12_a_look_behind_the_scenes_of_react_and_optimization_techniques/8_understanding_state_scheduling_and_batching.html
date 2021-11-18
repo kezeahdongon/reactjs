@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding State Scheduling & Batching</title>
+</head>
+<body>
+    <!-- 
+        STATE SCHEDULING & BATCHING:
+
+        OUR CODE:                                           REACT:
+        <MyProduct />       setNewProduct('Book')           Current State 'DVD'
+                                    |
+                            Schedules a State update   ---  Scheduled state change
+                            with data 'Book'
+
+                    <MyProduct />                           New State 'Book'
+
+                     re-evaluate components (re-run component function)
+     -->
+</body>
+</html>
