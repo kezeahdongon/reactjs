@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventing Unnecessary Re-Evaluations with React.memo()</title>
+</head>
+<body>
+    <!-- 
+        WHAT ARE PREMITIVES?
+            var age = 28;
+
+            - The age variable (you could also use let or const by the way) stores a number value. The number 28.
+            - Number values are called "primitive values" because they're very simple building blocks of JavaScript apps.
+
+            other simple core building blocks:
+
+            var name = 'Max' // strings are primitives, too!
+            var isMale = true // so are booleans        
+
+            // So numbers, string, booleans - these are probably very well-known to you. undefined and null are additional primitive types.
+    -->
+
+    <!-- 
+        WHAT ARE REFERENCE TYPE?
+            objects and arrays are the reference type.
+
+            var person = {
+            name: 'Max',
+            age: 28,
+            }
+
+            var hobbies = ['Sports', 'Cooking']
+
+            - Here, person is an object and therefore a so-called reference type. 
+            Please note that it holds properties that in turn have primitive values. 
+            This doesn't affect the object being a reference type though. 
+            And you could of course also have nested objects or arrays inside the person object.
+
+            - The hobbies array is also a reference type - in this case, it holds a list of strings. 
+            A string is a primitive value/ type as you learned but this doesn't affect the array. 
+            Arrays are always reference types.
+    -->
+
+    <!-- 
+        - Behind the scene, JavaScript has to store the values assigned to properties or variable in memory.
+        - JavaScript knows two types of memory: The Stack and the Heap.
+
+        - The STACK is essentially an easy-to-access memory that simply manages its items as a - well - stack. 
+        Only items for which the size is known in advance can go onto the stack. This is the case for numbers, strings, booleans.
+
+        - The HEAP is a memory for items of which you can't pre-determine the exact size and structure. 
+        Since objects and arrays can be mutated and change at runtime, they have to go into the heap therefore.
+
+        For each heap item, the exact address is stored in a pointer which points at the item in the heap. 
+        This pointer in turn is stored on the stack.
+    -->
+
+    <!-- 
+        Strange Behavior of "Reference Types"
+            The fact that only pointers are stored on the stack for reference types matters a lot!
+
+            var person = { name: 'Max' }
+            - A pointer to the person object is stored in the variable. The same would be the case for the hobbies array.
+
+        var person = { name: 'Max' }
+        var newPerson = person
+        newPerson.name = 'Anna'
+        console.log(person.name) // What does this line print?
+        - You'll see 'Anna' in the console!
+
+            - Because you never copied the person object itself to newPerson. 
+            You only copied the pointer! It still points at the same address in memory though. 
+            Hence changing newPerson.name also changes person.name because newPerson points at the exactly same object!
+
+        var hobbies = ['Sports', 'Cooking']
+        var copiedHobbies = hobbies
+        copiedHobbies.push('Music')
+        console.log(hobbies[2]) // What does this line print?
+        - This prints 'Music' - for the exact same reason as stated above.
+    -->
+
+    <!-- 
+        How to copy Actual Value?
+            - You basically need to construct a new object or array and immediately fill it 
+            with the properties or elements of the old object or array.
+     -->
+    
+    <!-- 
+        Two Most Popular Approaches for Array:
+            1. Use the slice() method
+                - slice() is a standard array method provided by JavaScript.
+                var hobbies = ['Sports', 'Cooking']
+                var copiedHobbies = hobbies.slice()
+                    - It basically returns a new array which contains all elements of the old element, 
+                    starting at the starting index you passed (and then up to the max number of elements you defined). 
+                    If you just call slice(), without arguments, you get a new array with all elements of the old array.
+
+            2. Use the spread operator
+                - If you're using ES6+, you can use the spread operator.
+                var hobbies = ['Sports', 'Cooking']
+                var copiedHobbies = [...hobbies]
+                    - Here, you also create a new array (manually, by using []) and you then use the spread operator (...) 
+                    to "pull all elements of the old array out" and add them to the new array.
+     -->
+
+     <!-- 
+        For Objects:
+            1. Object.assign()
+            var person = { name: 'Max' }
+            var copiedPerson = Object.assign({}, person)
+                - This syntax creates a new object (the {} part) and assigns all properties of the old object (the second argument) 
+                to that newly created one. This creates a copy.
+
+            2. Just as with arrays, you can also use the spread operator on objects.
+            var person = { name: 'Max' }
+            var copiedPerson = { ...person }
+                - This will also create a new object (because you used { }) and will then pull all properties of person out of it, 
+                into the brand-new objects.
+      -->
+
+      <!-- 
+          The memo method tells React that whenever the app component change it should go to the component 
+          that is declared to the memo and compare the new prop values to the previous prop values.
+       -->
+
+    <!-- 
+        NOTE: Functions are just objects in JavaScript
+     -->
+</body>
+</html>
