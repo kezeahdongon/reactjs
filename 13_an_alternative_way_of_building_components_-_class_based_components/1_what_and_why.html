@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What & Why</title>
+</head>
+<body>
+    <!-- 
+        CLASS-BASED COMPONENT
+            An Alternative Way Of Building Components
+
+        MODULE CONTENT:
+            - What & Why
+            - Working with Class-based Components
+            - Error Boundaries
+     -->
+
+    <!-- 
+        What & Why:
+            Class-based Components: An Alternative to Functions
+                Functional Components -- Default & most Modern Approach
+
+                    function Product(props){
+                        return <h2>A Product!</h2>
+                    };
+
+                    - Components are regular javascript functions which return renderable results (typically JSX).
+
+                Class-based Components -- Was Required in the Past
+                    
+                    class Product extends Component{
+                        render(){
+                            return <h2>A Product!</h2>
+                        }
+                    };
+
+                    - Components can also be defined as JS classes where a render() methos defines the to-be-rendered output.
+
+            - Traditionally (React < 16.8), you had to use class-based components to manage "state".
+            - React 16.8 introduced "React Hooks" for Functional Components
+            - Class-based Components Can't use React Hooks.
+     -->
+</body>
+</html>
