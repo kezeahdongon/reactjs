@@ -19,7 +19,7 @@ const AvailableMeals = () => {
           id: key,
           name: responseData[key].name,
           description: responseData[key].description,
-          preice: responseData[key].price,
+          price: responseData[key].price,
         });
       }
       setMeals(loadedMeals);
