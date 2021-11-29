@@ -1,0 +1,25 @@
+EXPLORING THE CORE REDUX Concepts
+
+    The Reducer function
+        - is a standard JavaScript function but it will be called by the 
+        redux library and it will always receive two pieces of input 
+        parameters the old/existing state and the action that is dispatched.
+            --Inputs: Old state + Dispatched Action
+        
+        - Then this reducer function must return a certain output, it must
+        always return a new state object.
+            --Output: New State Object
+
+        - Therefore, a reducer function should be a pure function which basically
+        means that the same values for the inputs always should produce exactly
+        the same output and there should be no side-effectsinside of that function.
+        So you must not send http request or write somethinf to local storage or
+        fetch something from local storage, instead, a reducer should really just 
+        be a function that takes the given inputs which are provided by redux and
+        then produces the expected output, a new state object.
+
+        const counterReducer = (state, action) => {
+            return 
+        };
+            - the reducer will receive (state, action) by default.
+            and then we shall return the new state or replace the existing state 

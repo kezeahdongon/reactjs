@@ -1,0 +1,29 @@
+Core Redux Concepts
+    - Redux is all about having one central data (state) store in the application.
+    - in the store, you would store authentication state, theming, some user input state you want to save.
+    - we have data index store so we can use it from inside our components. 
+    ex: if some data changes, we want to know about the changes in a component so we can react accordingly and update the UI.
+        for this components setup subscription to our central store. They subscribe to the store and whenever the data changes 
+        the store notifies components and then components can get the data they need for example the current authenticationdatasso 
+        they will get a slice of redux storeand can then use it. 
+    NOTE: never have more than one store. it is one store for all the states for the entire application.
+
+HOW DO DO WE CHANGE DATA IN THE STORE?
+    Rule: Components never directly manipulate the store data. Instead, we use reducers. 
+            Reducer functions is responsible for mutating or changing the store data.
+
+    - The reducer function is a general concept and is not the useReducer() hook.
+
+HOW DO WE CONNECT COMPONENTS AND REDUCER FUNCTION?
+    - it will be the components that should trigger a data change.
+        ex: a click on a button in a component that should trigger some data change. 
+    - components dispatch actions
+    - components trigger certain actions
+    - an action is just a simple javaScript object which describes the kind of operationthe reducer should perform
+        therefore redux then forward actions to the reducer reads the descriptionof the desired operation and this operation by the reducer.
+    - so components despatch actions which describes what should be done but don't do it directly
+     then this actions are forwarded to the reducer. the reducer then doeswhat the action wantsthe reducer to do 
+     and then the reducer spits out a new state which in factably will replace the existing state in that central data storeand when that happens,
+     when that state in the data store is updated subscribing components are notified so they can update their UI.
+
+    
