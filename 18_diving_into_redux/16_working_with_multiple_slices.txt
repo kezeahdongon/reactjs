@@ -1,0 +1,129 @@
+**store/index.js
+// import { createStore } from "redux";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
+
+const initialCounterState = {counter: 0, showCounter: true};
+
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState: initialCounterState,
+    reducers: {
+        increment(state) {
+            state.counter++;
+        },
+        decrement(state) {
+            state.counter--;
+        },
+        increase(state, action) {
+            state.counter = state.counter + action.payload;
+        },
+        decrease(state, action) {
+            state.counter = state.counter - action.payload;
+        },
+        increaseByFive(state) {
+            state.counter = state.counter + 5;
+        },
+        decreaseByFive(state) { 
+            state.counter = state.counter - 5;
+        },
+        toggleCounter(state) {
+            state.showCounter = !state.showCounter;
+        }
+    }
+});
+
+const initialAuthState = {
+    isAuthenticated: false,
+};
+
+const authSlice = createSlice({
+    name: 'authentication',
+    initialState: initialAuthState,
+    reducers: {
+        login(state) {
+            state.isAuthenticated = true;
+        },
+        logout(state) {
+            state.isAuthenticated = false;
+        }
+    }
+});
+
+
+const store = configureStore({
+    reducer: {counter: counterSlice.reducer, auth: authSlice.reducer},
+});
+
+export const counterActions = counterSlice.actions;
+export const authActions = authSlice.actions;
+export default store;
+
+**Auth.js
+import { useDispatch } from 'react-redux';
+import { authActions } from '../store';
+import classes from './Auth.module.css';
+
+const Auth = () => {
+  const dispatch = useDispatch();
+
+  const loginHandler = (event) => {
+    event.preventDefault();
+    dispatch(authActions.login());
+  };
+
+  return (
+    <main className={classes.auth}>
+      <section>
+        <form onSubmit={loginHandler}>
+          <div className={classes.control}>
+            <label htmlFor='email'>Email</label>
+            <input type='email' id='email' />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor='password'>Password</label>
+            <input type='password' id='password' />
+          </div>
+          <button>Login</button>
+        </form>
+      </section>
+    </main>
+  );
+};
+
+export default Auth;
+
+**Header.jsimport { useSelector, useDispatch } from 'react-redux';
+import { authActions } from '../store/index';
+
+import classes from './Header.module.css';
+
+const Header = () => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(state => state.auth.isAuthenticated);
+
+  const logoutHandler = (event) => {
+    dispatch(authActions.logout());
+  };
+
+  return (
+    <header className={classes.header}>
+      <h1>Redux Auth</h1>
+      {isAuth && <nav>
+        <ul>
+          <li>
+            <a href='/'>My Products</a>
+          </li>
+          <li>
+            <a href='/'>My Sales</a>
+          </li>
+          <li>
+            <button onClick={logoutHandler}>Logout</button>
+          </li>
+        </ul>
+      </nav>}
+    </header>
+  );
+};
+
+export default Header;
+

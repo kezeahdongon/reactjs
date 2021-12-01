@@ -1,0 +1,110 @@
+*store/index.js
+
+import { createStore } from "redux";
+
+const counterReducer = (state = {counter: 0}, action) => {
+    if (action.type === 'increment') {
+        return {
+            counter: state.counter + 1
+        }
+    };
+
+    if (action.type === 'increaseByFive') {
+        return {
+            counter: state.counter + 5
+        }
+    };
+
+    if (action.type === 'increase') {
+        return {
+            counter: state.counter + action.amount
+        }
+    };
+
+    if (action.type === 'decrement') {
+        return {
+            counter: state.counter - 1
+        }
+    };
+
+    if (action.type === 'decreaseByFive') {
+        return {
+            counter: state.counter - 5
+        }
+    };
+
+    if (action.type === 'decrease') {
+        return {
+            counter: state.counter - action.amount
+        }
+    };
+
+    return state;
+};
+
+const store = createStore(counterReducer);
+
+export default store;
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*components/Counter.js
+
+import { useSelector, useDispatch } from 'react-redux';
+
+import classes from './Counter.module.css';
+
+const Counter = () => {
+  const dispatch = useDispatch();
+
+  const counter = useSelector(state => state.counter); 
+  // useSelector() calls a function w/c is basically determines what piece of data we want to extract from store.
+
+  const incrementHandler = () => {
+    dispatch({type: 'increment'})
+  };
+
+  const increaseByFiveHandler = () => {
+    dispatch({type: 'increaseByFive'})
+  };
+
+  const decrementHandler = () => {
+    dispatch({type: 'decrement'})
+  };
+
+  const decreaseByFiveHandler = () => {
+    dispatch({type: 'decreaseByFive'})
+  };
+
+  const increaseHandler = () => {
+    dispatch({type: 'increase', amount: 5})
+  };
+
+  const decreaseHandler = () => {
+    dispatch({type: 'decrease', amount: 5})
+  };
+  
+  const toggleCounterHandler = () => {};
+
+  return (
+    <main className={classes.counter}>
+      <h1>Redux Counter</h1>
+      <div className={classes.value}>{counter}</div>
+      <div>
+        <button onClick={incrementHandler}>Increment</button>
+        <button onClick={decrementHandler}>Decrement</button>
+      </div>
+      <div>
+        <button onClick={increaseByFiveHandler}>Increase by 5</button>
+        <button onClick={decreaseByFiveHandler}>Decrease by 5</button>
+      </div>
+      <div>
+        <button onClick={increaseHandler}>Increase</button>
+        <button onClick={decreaseHandler}>Decrease</button>
+      </div>
+      <button onClick={toggleCounterHandler}>Toggle Counter</button>
+    </main>
+  );
+};
+
+export default Counter;

@@ -1,0 +1,10 @@
+- the objects which we return to the reducer WILL not be merged with the existing state
+they WILL OVERWRITE the existing state.
+
+- in working with redux, you should NEVER MUTATE THE EXISTING STATE.
+Instead, ALWAYS OVERWRITE IT WITH A BRAND NEW STATE OBJECT.
+
+- mutating the state can lead to bugs, unpredictable behavior, and it can make debugging
+the application harder. So even though it doesn't leads to a bug here, it can have unwanted 
+and unexpected side-effects in bigger applications where your states gets out of sync and
+suddenly the UI is not reflecting your state anymore.

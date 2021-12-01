@@ -1,0 +1,8 @@
+- in the counter.js file inside the components,
+import { useSelector } from 'react-redux';
+
+- then use the useSelector function to call a function from store.
+const counter = useSelector(state => state.counter); 
+  // useSelector() calls a function w/c is basically determines what piece of data we want to extract from store.
+  
+- and then assign the {counter} to the counter UI

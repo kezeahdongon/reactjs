@@ -1,0 +1,30 @@
+*create a folder "store" inside the "scr" folder.
+    - it is a common convention to store your redux-related code files 
+    in a 'store' folder inside the 'scr' folder, and inside the 'store' 
+    folder create a 'index.js' file to store your redux logics.
+    
+    - And in the index.js we create a store, and create a reducer for 
+    the counter and then export the store.
+    
+
+import { createStore } from "redux";
+
+const counterReducer = (state = {counter: 0}, action) => {
+    if (action.type === 'increment') {
+        return {
+            counter: state.counter + 1
+        }
+    };
+
+    if (action.type === 'decrement') {
+        return {
+            counter: state.counter - 1
+        }
+    };
+
+    return state;
+};
+
+const store = createStore(counterReducer);
+
+export default store;

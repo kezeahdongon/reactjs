@@ -1,0 +1,14 @@
+To provide the redux store to react app...
+
+    - Go to index.js file in the main folder where we render the entire app to the 
+    highest level we can go in the react application to the top of the component 
+    tree where we render the root component.
+
+    - import { Provider } from 'react-redux';
+
+    - wrap the root component with <Provider />
+    ReactDOM.render(<Provider><App /></Provider>, document.getElementById('root'));
+
+    - import store and in the <Provider /> we put a store prop and it needs a value which is our redux store
+    import store from './store/index';
+    ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

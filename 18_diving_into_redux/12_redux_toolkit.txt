@@ -1,0 +1,5 @@
+What is Redux toolkit?
+    - Redux Toolkit is our official, opinionated, batteries-included toolset for 
+    efficient Redux development. It also includes the most widely used Redux addons, 
+    like Redux Thunk for async logic and Reselect for writing selector functions, 
+    so that you can use them right away.

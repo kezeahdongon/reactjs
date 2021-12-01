@@ -1,0 +1,16 @@
+- create buttons 'increment' and 'decrement' for user interface.
+
+- to wire the button for them to work we need to dispatch it.
+
+- we import {useDispatch} from 'react-redux';
+
+- and then use the useDispatch
+const dispatch = useDispatch();
+
+- and then creat a handler for the button
+    const incrementHandler = () => {
+    dispatch({type: 'increment'})
+  };
+  const decrementHandler = () => {
+    dispatch({type: 'decrement'})
+  };
