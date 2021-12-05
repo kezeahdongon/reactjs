@@ -1,0 +1,10 @@
+- Reducers must be PURE, SIDE-EFFECT FREE, SYNCHRONOUS functions.
+- your reducer functions should take some inputs in the case of redux reducer the 
+(old state and the action) and produce some outputs 
+Input (Old State + Action) >>> Output (New State)
+
+- Where should side-effects and async tasks be executed?
+    - inside the components (e.g. useEffect())
+        if you use this... you can set aside redux.
+    - inside the action creators
+        action creator allows us to run asynchrounous or generally or side-effect code

@@ -1,0 +1,4 @@
+** What is a "Thunk"?
+    - A function that delays an action until later
+    - we could write an action creator as a thunk to write an action creator that does
+    not return the action itself but another function which eventually returns the action.

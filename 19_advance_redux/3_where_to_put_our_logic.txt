@@ -1,0 +1,9 @@
+** Fat Reducers vs Fat Components vs Fat Actions
+    - Where should our logic (code) go? 
+        - Synchronous, side-effect free code
+            - prefer reducers
+            - avoid action creators or components
+            ex: data transformation
+        - Async code or code with side-effects
+            - prefer action cfreators or components
+            - never use reducers

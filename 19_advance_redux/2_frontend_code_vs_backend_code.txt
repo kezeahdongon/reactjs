@@ -1,0 +1,13 @@
+** Frontend code depends on backend code
+    The code we need to write to our frontend and where we write that code will depend 
+    on our backend code.
+        - We have our Backend API, the backend server talking to the frontend application
+        with help of our http request and the responses which we send around
+
+        - If backend API DOES A LOT OF WORK (ex: transform data + store data)
+        - the frontend app will SEND DATA & RECEIVE + USE RESPONSE (ex: less code on the 
+        frontend, ahead of the reducer)
+
+        - if the backend API DOES NOT A LOT OF WORK (ex: just stores incoming data)
+        - the frontend app will TRANSFORM DATA & SEND DATA (ex: more code on the 
+        frontend, ahead of the reducer)
