@@ -1,0 +1,58 @@
+const Welcome = () => {
+    return (
+        <h1>The Welcome Page</h1>
+    )
+};
+export default Welcome;
+
+
+
+const Products = () => {
+    return (
+        <h1>The Products Page</h1>
+    )
+};
+export default Products;
+
+import { Link } from 'react-router-dom';
+const MainHeader = () => {
+    return (
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        // <a href="/welcome">Welcome</a>
+                            <Link to="/welcome">Welcome</Link>
+                    </li>
+                    <li>
+                        // <a href="/products">Products</a>
+                            <Link to="/products">Products</Link>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    )
+};
+export default MainHeader;
+
+
+import { Route} from 'react-router-dom';
+import Welcome from './pages/Welcome';
+import Products from './pages/Products';
+import MainHeader from './components/MainHeader';
+function App() {
+  return (
+    <div>
+      <MainHeader />
+      <main>
+        <Route path="/welcome">
+          <Welcome />
+        </Route>
+        <Route path="/products">
+          <Products />
+        </Route>
+      </ main>
+    </div>
+  );
+}
+export default App;

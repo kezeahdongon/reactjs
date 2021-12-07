@@ -1,0 +1,19 @@
+** Single-Page Application Routing
+    * Multiple Pages in Single-Page Apps
+
+    What is Routing?
+        - React Router is a standard library for routing in React. It enables the 
+        navigation among views of various components in a React Application, 
+        allows changing the browser URL, and keeps the UI in sync with the URL.
+
+        - The application will contain three components: home component, about a 
+        component, and contact component.
+
+    Building SPAs
+        - When building complex user interfaces, we typically build SINGLE PAGE 
+        APPLICATIONS (SPAs).
+
+        - Only one initial HTML request & response
+
+        - Page (URL) changes are then handled by client-side (React) code.
+        It changes the visible content without fetching a new HTML file.

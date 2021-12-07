@@ -1,0 +1,4 @@
+** Nested Routes
+    depending on what you are building, you could have the requirement that you don't
+    just have a couple of different main pages but then instead also inside of a page
+    you want to have a route. 

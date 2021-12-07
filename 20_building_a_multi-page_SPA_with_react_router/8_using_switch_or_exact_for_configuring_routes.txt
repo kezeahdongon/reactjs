@@ -1,0 +1,13 @@
+** Dynamic routes and route parameters are another crusial feature of react router which 
+you will use in any applications you are building. 
+
+** Your URL basically works like a folder structure then new "subfolders" (= related pages)
+add new segments.
+
+** This is how router works:
+    We define our routes but by default these routes are not parse such that only one of 
+    them are loaded at the same time instead all routes that match the current prop will be
+    loaded. 
+
+    - solution to this is using the {Switch} from 'react-reouter-dom' so that only one in
+    the options will be choosen.

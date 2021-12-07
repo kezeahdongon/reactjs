@@ -1,0 +1,4 @@
+Installing the react Router:
+    1. open the terminal in your folder
+    2. npm install 
+    3. npm install react-router-dom@5 to install the 5th version

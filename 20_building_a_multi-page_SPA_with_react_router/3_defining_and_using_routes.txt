@@ -1,0 +1,41 @@
+** To route the components: 
+    1. import the Route from react-router-dom
+    2. import the components you want to route
+    3. create <Route></ Route> component
+    4. and then inside the route create a path <Route path="/welcome" />
+    5. between the Route component put the component you want to route
+    ex: <Route path="/welcome">
+            <Welcome />
+        </Route>
+
+    6. in the main component index.js import { BrowserRouter } from 'react-router-dom'
+    and then wrap the <App /> component with the <BrowserRouter />.
+
+
+
+
+
+import { Route} from 'react-router-dom';
+import Welcome from './components/Welcome';
+import Products from './components/Products';
+
+function App() {
+  return (
+    <div>
+      <Route path="/welcome">
+        <Welcome />
+      </Route>
+      <Route path="/products">
+        <Products />
+      </Route>
+    </div>
+  );
+}
+
+export default App;
+
+// our-domain.com/welcome => Welcome Component
+// our-domain.com/products => Products Component
+
+// our-domain.com/ => Component A
+// our-domain.com/products => Component B
