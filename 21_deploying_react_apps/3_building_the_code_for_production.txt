@@ -1,0 +1,12 @@
+** Buildong the code for production
+
+    1. go to the 'package.json' file and do to the "scripts" and check for the 'build'.
+
+    2. run [npm run build] in the terminal, this will transform the code and shrink it 
+    as much as possible and it will not start a server. It will create a new folder
+    'build' where you can find all the code you'll need to deploy. The 'static' folder
+    holds the optimized css codes and optimized js codes.
+
+        NOTE: you should never change the files inside of this folder.
+
+

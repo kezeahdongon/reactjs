@@ -1,0 +1,6 @@
+    
+    NOTE: A React SPA is a "Static Website"
+        - means that it is made of only HTML, CSS, and JavaScript code.
+
+
+    - when we want to deploy a SPA, a Static Site Host is needed.

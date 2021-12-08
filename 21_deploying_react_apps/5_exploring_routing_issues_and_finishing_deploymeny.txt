@@ -1,0 +1,11 @@
+
+    ** Server-side Routing vs Client-side Routing
+        
+        * Server
+            - Production-ready React code
+            - the server response to the client request with the HTML, CSS, and JS React code
+            - /some-route
+
+        * Client (user)
+            - sending a request to the server
+            -  /some-route

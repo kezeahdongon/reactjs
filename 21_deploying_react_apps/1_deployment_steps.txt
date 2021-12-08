@@ -1,0 +1,6 @@
+** Deployment steps
+    1. writing and testing code
+    2. optimize code
+    3. build app for production
+    4. upload production code to server
+    5. configure server 
