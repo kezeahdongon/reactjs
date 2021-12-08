@@ -1,0 +1,19 @@
+** QouteDetails.js
+import { useParams, Route } from 'react-router-dom';
+import { Fragment } from 'react';
+
+const QouteDetails = () => {
+    const params = useParams();
+
+    return (
+        <Fragment>
+            <h1>Qoute Detail Page</h1>
+            <p>{params.qouteId}</p>
+            <Route path={`/qoutes/${params.qouteId}/comments`}></Route>
+        </Fragment>
+    )
+};
+export default QouteDetails;
+
+NOTE: Alternately, since we're defining a route here (not a link),
+    you can also set [path='/qoutes/:qouteId/comments']

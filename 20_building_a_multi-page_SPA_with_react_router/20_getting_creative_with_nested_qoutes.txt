@@ -1,0 +1,50 @@
+import { Fragment } from 'react';
+import { useParams, Route, Link } from 'react-router-dom';
+import Comments from '../components/comments/Comments';
+import HighlightedQoute from '../components/quotes/HighlightedQuote';
+
+const DUMMY_QOUTES = [
+    {
+        id: 'q1',
+        author: 'Max',
+        text: 'Learning react is fun!'
+    },
+    {
+        id: 'q2',
+        author: 'Reyco',
+        text: 'It should be perfect!'
+    },
+    {
+        id: 'q3',
+        author: 'Kezeah',
+        text: 'Keep learning!'
+    },
+];
+
+const QouteDetails = () => {
+    const params = useParams();
+
+    const qoute = DUMMY_QOUTES.find(qoute => qoute.id === params.qouteId)
+
+    if (!qoute) {
+        return (
+            <p>No qoute found!</p>
+        )
+    }
+
+    return (
+        <Fragment>
+            <HighlightedQoute text={qoute.text} author={qoute.author} />
+            <Route path={`/qoutes/${params.qouteId}`} exact>
+                <div className='centered'>
+                    <Link className='btn--flat' to={`/qoutes/${params.qouteId}/comments`} >Load Comments</Link>
+                </div>
+            </Route>
+            <Route path={`/qoutes/${params.qouteId}/comments`}>
+                <Comments />
+            </Route>
+        </Fragment>
+    )
+};
+
+export default QouteDetails;

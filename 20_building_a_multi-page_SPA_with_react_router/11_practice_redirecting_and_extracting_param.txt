@@ -1,0 +1,15 @@
+** QouteDetails.js
+import { useParams } from "react-router";
+import { Fragment } from "react/cjs/react.production.min";
+
+const QouteDetails = () => {
+    const params = useParams();
+
+    return (
+        <Fragment>
+            <h1>Qoute Detail Page</h1>
+            <p>{params.qouteId}</p>
+        </Fragment>
+    )
+};
+export default QouteDetails;

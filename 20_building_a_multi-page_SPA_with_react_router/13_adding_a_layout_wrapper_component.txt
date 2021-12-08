@@ -1,0 +1,76 @@
+import { NavLink } from 'react-router-dom';
+import classes from './MainNavigation.module.css';
+
+const MainNavigation = () => {
+    return (
+        <header className={classes.header}>
+            <div className={classes.logo}>Great Qoutes</div>
+            <nav className={classes.nav}>
+                <ul>
+                    <li>
+                        <NavLink to='/qoutes' activeClassName={classes.active}>
+                            All Qoutes
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/new-qoute' activeClassName={classes.active}>
+                            Add a Qoute
+                        </NavLink>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    );
+};
+
+export default MainNavigation;
+
+
+
+// imports
+import { Fragment } from 'react';
+import classes from './Layout.module.css';
+import MainNavigation from './MainNavigation';
+
+const Layout = (props) => {
+    return (
+        <Fragment>
+            <MainNavigation />
+            <main className={classes.main}>{props.children}</main>
+        </Fragment>
+    );
+};
+
+export default Layout;
+
+
+
+
+import { Route, Switch, Redirect } from 'react-router-dom';
+import AllQoutes from './pages/AllQoutes';
+import QouteDetails from './pages/QouteDetail';
+import NewQoute from './pages/NewQoute';
+import Layout from './components/layout/Layout';
+
+function App() {
+  return (
+    <Layout>
+      <Switch>
+        <Route path='/' exact>
+          <Redirect to='/qoutes' />
+        </Route>
+        <Route path='/qoutes' exact>
+          <AllQoutes />
+        </Route>
+        <Route path='/qoutes/:qouteId' >
+          <QouteDetails />
+        </Route>
+        <Route path='/new-qoute' >
+          <NewQoute />
+        </Route>
+      </Switch>
+    </Layout>
+  );
+}
+
+export default App;

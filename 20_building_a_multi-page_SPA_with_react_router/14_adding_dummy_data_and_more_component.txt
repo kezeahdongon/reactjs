@@ -1,0 +1,81 @@
+import { Fragment } from 'react';
+import { useParams, Route } from 'react-router-dom';
+import Comments from '../components/comments/Comments';
+
+const QouteDetails = () => {
+    const params = useParams();
+
+    return (
+        <Fragment>
+            <h1>Qoute Detail Page</h1>
+            <p>{params.qouteId}</p>
+            <Route path={`/qoutes/${params.qouteId}/comments`}>
+                <Comments />
+            </Route>
+        </Fragment>
+    )
+};
+
+export default QouteDetails;
+
+
+// imports
+import { Fragment } from 'react';
+import classes from './Layout.module.css';
+import MainNavigation from './MainNavigation';
+
+const Layout = (props) => {
+    return (
+        <Fragment>
+            <MainNavigation />
+            <main className={classes.main}>{props.children}</main>
+        </Fragment>
+    );
+};
+
+export default Layout;
+
+
+import QuoteForm from "../components/quotes/QuoteForm";
+
+const NewQoute = () => {
+    const addQouteHandler = qouteData => {
+        console.log(qouteData);
+    };
+
+    return (
+        <QuoteForm onAddQoute={addQouteHandler} />
+    )
+};
+
+export default NewQoute;
+
+
+
+import QouteList from '../components/quotes/QuoteList';
+
+const DUMMY_QOUTES = [
+    {
+        id: 'q1',
+        author: 'Max',
+        text: 'Learning react is fun!'
+    },
+    {
+        id: 'q2',
+        author: 'Reyco',
+        text: 'It should be perfect!'
+    },
+    {
+        id: 'q3',
+        author: 'Kezeah',
+        text: 'Keep learning!'
+    },
+];
+
+const AllQoutes = () => {
+    return (
+        <QouteList qoutes={DUMMY_QOUTES} />
+    )
+};
+
+export default AllQoutes;

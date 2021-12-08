@@ -1,0 +1,68 @@
+** AllQoutes.js
+const AllQoutes = () => {
+    return (
+        <h1>All Qoutes Page</h1>
+    )
+};
+export default AllQoutes;
+
+
+
+** QouteDetails.js
+const QouteDetails = () => {
+    return (
+        <h1>Qoute Detail Page</h1>
+    )
+};
+export default QouteDetails;
+
+
+
+** NewQoute.js
+const NewQoute = () => {
+    return (
+        <h1>New Qoute Page</h1>
+    )
+};
+export default NewQoute;
+
+
+
+** App.js
+import { Route, Switch } from 'react-router-dom';
+import AllQoutes from './pages/AllQoutes';
+import QouteDetails from './pages/QouteDetail';
+import NewQoute from './pages/NewQoute';
+
+function App() {
+  return (
+    <Switch>
+      <Route path='/qoutes' exact>
+        <AllQoutes />
+      </Route>
+      <Route path='/qoutes/:qouteId' >
+        <QouteDetails />
+      </Route>
+      <Route path='/new-qoute' >
+        <NewQoute />
+      </Route>
+    </Switch>
+  );
+}
+export default App;
+
+
+
+** index.js
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>, 
+    document.getElementById('root')
+);
+

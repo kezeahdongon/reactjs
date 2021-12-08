@@ -1,0 +1,44 @@
+import { Route, Switch, Redirect } from 'react-router-dom';
+import AllQoutes from './pages/AllQoutes';
+import QouteDetails from './pages/QouteDetail';
+import NewQoute from './pages/NewQoute';
+import Layout from './components/layout/Layout';
+import NotFound from './pages/NotFound';
+
+function App() {
+  return (
+    <Layout>
+      <Switch>
+        <Route path='/' exact>
+          <Redirect to='/qoutes' />
+        </Route>
+        <Route path='/qoutes' exact>
+          <AllQoutes />
+        </Route>
+        <Route path='/qoutes/:qouteId' >
+          <QouteDetails />
+        </Route>
+        <Route path='/new-qoute' >
+          <NewQoute />
+        </Route>
+        <Route path='*'>
+          <NotFound />
+        </Route>
+      </Switch>
+    </Layout>
+  );
+}
+
+export default App;
+
+
+
+const NotFound = () => {
+    return (
+        <div className='centered'>
+            <p>Page not found!</p>
+        </div>
+    )
+};
+
+export default NotFound;
