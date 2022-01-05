@@ -1,0 +1,28 @@
+** Adding authentication to react app
+
+    * Authentication is needed if content should be protected 
+        (not accessible by everyone)
+
+        * two-step process:
+            1. get access/permission
+            2. send request to protected resource
+
+        * getting permission
+            -> Client (Browser) -> Request (with user credentials) -> Server -> Response (yes/no) ->
+
+    * How does authentication work?
+        - we can't just save and use the "yes"
+        - we could send a false "yes" to the server to request protected data
+        - there are two approach we can use to authenticate
+            - Server-side sessions
+                - is a very traditional approach of handling authentication and 
+                they are a great approach of handling authentication.
+                - with server-side session, once a server grants you access that 
+                server stores a unique identier for your client.
+                - store unique identifier on server, send same identifier to client.
+                - client sends identifier along with  requests to protected resources.
+
+            - Authentication token
+                - create (but not store) "permission" token on server, send token to client.
+                - client sends token along with request to protected resources.
+                
