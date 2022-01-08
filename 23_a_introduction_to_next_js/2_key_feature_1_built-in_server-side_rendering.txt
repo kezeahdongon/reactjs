@@ -1,0 +1,9 @@
+    **Key Feature 1: Built-in Server-side rendering
+
+        - server-side rendering is all about preparing the content of a page on a server 
+        instead of in the client.
+
+        - automatic page prerendering: great for SEO and initial load
+
+        - Blending client-side and server-side: fetch data on the server and render 
+        finished pages

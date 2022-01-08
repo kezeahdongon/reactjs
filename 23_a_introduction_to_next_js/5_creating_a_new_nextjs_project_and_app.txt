@@ -1,0 +1,9 @@
+
+    **Creating a neew NextJS project and App
+
+        1. Open terminal and cd it to the folder where you want your project
+        2. run [npx create-next-app]
+        3. it might propt you to confirm that you are installing extra packages... just confirm
+        4. it will ask for you to give the title of the project... 
+            ? What is your project name? 
+            -- just type the name of your desired app

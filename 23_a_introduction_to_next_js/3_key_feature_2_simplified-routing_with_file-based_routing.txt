@@ -1,0 +1,8 @@
+    **Key Feature 2: Simplified routing with file-based routing
+
+        - routing: we change what is visible on nthe screen based on the URL withouth sending 
+        a extra request to a server.
+
+        - defines pages and routes with files and folder instead of code
+
+        - less code, less work, highly understandable

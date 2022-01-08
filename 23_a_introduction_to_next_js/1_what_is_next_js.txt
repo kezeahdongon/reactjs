@@ -1,0 +1,26 @@
+    **What id NextJS?
+
+        - Next.js is an open-source development framework built on top of Node.js 
+        enabling React based web applications functionalities such as server-side 
+        rendering and generating static websites.
+
+        - NextJS solves common problems and makes building react apps easier.
+
+        - it allows us to determine when a page should be pre-rendered.
+
+        - The React Framework for Production.
+
+        - It enhances the react apps and adds more features.
+
+        - A fullstack framework for ReactJS.
+
+        - Next.js gives you the best developer experience with all the features 
+        you need for production: hybrid static & server rendering, TypeScript 
+        support, smart bundling, route pre-fetching, and more. No config needed.
+        
+        - It lets you build server-side rendering and static web applications using React.
+
+        *Difference between a framework and a library. Framework is much bigger 
+        and have more features than library, it focuses on more things, and it
+        gives a clear rules/guidance on how you should write your code, on how
+        you should structure your files and etc.
