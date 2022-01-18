@@ -1,0 +1,10 @@
+
+    **To extract the concrete value entered in the URL when the page is loaded
+        NextJS gives us a special hook which we can use
+        a special React hook which we can use in functional components
+        it also has an alternative for class base components
+        a higher ordered component you can wrap around your component.
+
+                import { useRouter } from 'next/router';
+
+        

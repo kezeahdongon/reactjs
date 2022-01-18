@@ -1,0 +1,12 @@
+
+    **Creating Dynamic Pages ( with parameters )
+
+        - we use square brackets [] in the file name in front of the extension.
+        - if you have square brackets in your file name like this [].js
+            it tells NextJS that tghis will be a dynamic page
+            so that it will  be loaded for different values in your path
+            and then you can add an identifier between those square brackets 
+            where the identifier name is totally up to you.
+
+        - when you visit the site our-domain.com/news/anything 
+            it will land you on the details page
